@@ -52,7 +52,6 @@ class Model {
         let type = types[1]
         if (type) {
           if (this.reducers[type]) {
-            console.log(this.reducers[type](state, action.payload))
             return this.reducers[type](state, action.payload)
           }
         }

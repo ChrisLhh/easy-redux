@@ -1,10 +1,11 @@
-#### 一个让Redux更简单的轮子 --- 尚未完成
+#### 一个让Redux更简单的轮子
 
 api参考自https://github.com/rematch/rematch
 
 ##### Use
 
 ###### 1、Model
+name为必填选项
 ```
 // model.js
 export const model = {
@@ -53,7 +54,7 @@ export default store
 ```
 
 ###### 3、Dispatch
-可以使用dispatch去触发相应的reducer和effect
+可以使用dispatch去触发相应模块下的reducer和effect
 ```
 import { dispatch } from 'red-easy-redux'
 dispatch({type: '/model/increase', payload: 5}) // state: { model: { count: 5 } }
@@ -86,3 +87,6 @@ ReactDOM.render(
   document.getElementById('root')
 
 ```
+
+更多功能等待以后更新...
+update in 2018.5.21
