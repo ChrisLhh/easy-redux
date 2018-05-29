@@ -3,11 +3,11 @@
  * @Date: 2018-05-17 10:50:56 
  */
 
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import Model from './model'
 
 class Store {
-  constructor ({models, preloadState, enhancer}) {
+  constructor ({models, preloadState, middlewares, enhancer}) {
     let options = arguments[0]
     this._init(options)
   }
@@ -26,7 +26,7 @@ class Store {
   create () {
     let store = null
     let rootReducer = combineReducers(this.combineModelReducer(this.modelInstance))
-    store = createStore(rootReducer, this.preloadState)
+    store = applyMiddleware(...this.middlewares)(createStore)(rootReducer, this.preloadState)
     this.store = store
     return store
   }
